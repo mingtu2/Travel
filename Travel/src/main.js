@@ -4,8 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import fastClick from 'fastClick'
-import './assets/styles/reset.css'
-import './assets/styles/border.css' //解决1像素边框样式
+import 'styles/reset.css'
+import 'styles/border.css' //解决1像素边框样式
+import 'styles/iconfont.css'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)  //解决点击事件300ms延迟
