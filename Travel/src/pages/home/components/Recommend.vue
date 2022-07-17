@@ -31,6 +31,7 @@
       line-height :0.8rem
       background :#eee
       text-indent :0.2rem
+      text-align :left
     .item
       display :flex
       height :1.9rem

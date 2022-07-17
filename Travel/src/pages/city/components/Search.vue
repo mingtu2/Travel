@@ -1,11 +1,68 @@
 <template>
-  <div class="search">
-    <input class="search-input" type="text" placeholder="请输入城市名或拼音">
+  <div>
+    <div class="search">
+      <input v-model="keyword" class="search-input" type="text" placeholder="请输入城市名或拼音">
+    </div>
+    <div class="search-content" ref="search"  v-show="keyword">
+      <ul>
+        <li class="search-item border-bottom" v-for="item of list">
+          {{item.name}}
+        </li>
+        <li class="search-item border-bottom" v-show="hasNoData">
+          没有您要查找的数据
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
+  import Bscroll from 'better-scroll'
   export default {
-    name:'CitySearch'
+    name:'CitySearch',
+    props:{
+      cities:Object,
+    },
+    data (){
+      return{
+        keyword:'',
+        list:[],
+        timer:null,
+      }
+
+    },
+    watch:{
+      keyword (){
+        if(this.timer){
+          clearTimeout(this.timer);
+        }
+        //当关键字为空时,清空列表
+        if(!this.keyword){
+          this.list=[];
+          return;
+        }
+        this.timer=setTimeout(()=>{
+          var result=[];
+          for (let i in this.cities) {
+            this.cities[i].forEach((value)=>{
+              if(value.spell.indexOf(this.keyword)>-1 ||
+                 value.name.indexOf(this.keyword)>-1){
+                 result.push(value);
+              }
+            })
+          }
+         this.list=result;
+        },100)
+      }
+    },
+    computed:{
+      //当没有数据时,显示数据为空
+      hasNoData(){
+        return !this.list.length;
+      }
+    },
+    mounted (){
+      this.scroll=new Bscroll(this.$refs.search);
+    }
   }
 </script>
 <style lang="stylus" type="text/stylus" rel="stylesheet/stylus" scoped>
@@ -23,4 +80,20 @@
       padding :0.1rem
       box-sizing :border-box
       color :#666
+  .search-content
+    overflow :hidden
+    z-index :1
+    background :#eee
+    position :absolute
+    top:2.9rem
+    left:0
+    right:0
+    bottom:0
+    text-align :left
+    .search-item
+      line-height :0.62rem
+      padding-left :0.2rem
+      background :#fff
+      color :#666
+
 </style>

@@ -33,6 +33,7 @@
       line-height :0.8rem
       background :#eee
       text-indent :0.2rem
+      text-align :left
     .item-img-wrapper
       overflow :hidden
       height :0
