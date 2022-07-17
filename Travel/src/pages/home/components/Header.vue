@@ -10,7 +10,7 @@
 
     <router-link to="/city">
       <div class="header-right">
-        {{this.city}}
+        {{this.$store.state.city}}
         <span class="iconfont">&#xe600;</span>
       </div>
     </router-link>
@@ -21,7 +21,7 @@
   export default {
     name:"HomeHeader", //组件命名
     props:{
-      city:String
+
     }
   }
 </script>

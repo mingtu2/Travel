@@ -1,6 +1,6 @@
 <template>
   <div>
-    <home-header :city="city"></home-header>
+    <home-header></home-header>
     <home-swiper :list="swiperList"></home-swiper>
     <home-icons :list="iconList"></home-icons>
     <home-recommend :list="recommendList"></home-recommend>
@@ -26,7 +26,6 @@ import axios from 'axios'
     },
     data (){
       return{
-        city:'',
         iconList:[],
         swiperList:[],
         recommendList:[],
@@ -43,7 +42,6 @@ import axios from 'axios'
         resp=resp.data;
         if(resp.ret && resp.data){
           resp=resp.data;
-          this.city=resp.city;
           this.iconList=resp.iconList;
           this.swiperList=resp.swiperList;
           this.recommendList=resp.recommendList;
