@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <router-view/>
+    <!--加载一次不会再重新请求，从内存中取数据-->
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
