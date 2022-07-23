@@ -16,7 +16,7 @@
       list:Array,
     },
     data () {
-      return{
+      return {
         swiperOption:{
           pagination:'.swiper-pagination',
           loop: true

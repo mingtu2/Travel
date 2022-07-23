@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml">
   <div>
     <div class="search">
       <input v-model="keyword" class="search-input" type="text" placeholder="请输入城市名或拼音">
@@ -8,7 +8,7 @@
         <li class="search-item border-bottom"
             v-for="item of list"
             :key="item.id"
-            @click="handleCityClick(item.name)"
+            v-on:click="handleCityClick(item.name)"
         >
           {{item.name}}
         </li>
@@ -36,7 +36,7 @@
 
     },
     methods:{
-      handleCityClick:function (city) {
+      handleCityClick (city) {
         //派发事件
         // this.$store.dispatch('changeCity',city);
        // this.$store.commit('changeCity',city);
@@ -60,7 +60,8 @@
           for (let i in this.cities) {
             this.cities[i].forEach((value)=>{
               if(value.spell.indexOf(this.keyword)>-1 ||
-                 value.name.indexOf(this.keyword)>-1){
+                 value.name.indexOf(this.keyword)>-1)
+              {
                  result.push(value);
               }
             })

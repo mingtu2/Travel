@@ -6,6 +6,13 @@
   "description": "Travel项目图标",
   "glyphs": [
     {
+      "icon_id": "595002",
+      "name": "图片",
+      "font_class": "tupian1",
+      "unicode": "e6eb",
+      "unicode_decimal": 59115
+    },
+    {
       "icon_id": "1718353",
       "name": "下箭头",
       "font_class": "xiajiantou",
@@ -18,13 +25,6 @@
       "font_class": "fanhui",
       "unicode": "e624",
       "unicode_decimal": 58916
-    },
-    {
-      "icon_id": "2674929",
-      "name": "箭头 下",
-      "font_class": "jiantouxia",
-      "unicode": "e62d",
-      "unicode_decimal": 58925
     },
     {
       "icon_id": "2675116",

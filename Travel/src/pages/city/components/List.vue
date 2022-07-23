@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml">
   <div class="list" ref="wrapper">
     <div>
       <div class="area">
@@ -45,7 +45,7 @@
       letter:String,
     },
     methods:{
-      handleCityClick:function (city) {
+      handleCityClick  (city) {
         //派发事件
        // this.$store.dispatch('changeCity',city);
         this.$store.commit('changeCity',city);

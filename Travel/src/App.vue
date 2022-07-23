@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <!--加载一次不会再重新请求，从内存中取数据-->
-    <keep-alive>
+    <!--加载一次不会再重新请求，从内存中取数据 不需要缓存的数据-->
+    <keep-alive exclude="Detail">
       <router-view/>
     </keep-alive>
   </div>
@@ -20,6 +20,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /*//margin-top: 60px;*/
 }
 </style>
